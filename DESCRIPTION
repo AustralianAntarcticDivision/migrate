@@ -1,0 +1,16 @@
+Package: migrate
+Type: Package
+Title: Estimate the migration rate between two areas from tagging and population data
+Version: 1.0.0
+Author: Philippe Ziegler, Paul Burch
+Maintainer: Paul Burch <paul.burch@aad.gov.au>
+Description: More about what it does (maybe more than one line)
+Depends:
+    R (>= 3.0.2)
+Suggests:
+    knitr
+VignetteBuilder: knitr
+Description: Implemention of a catch conditioned modification of Hilborn (1990) to estimate the rates of migration between two areas from tag releases and recaptures, catches, tag-loss, tag-induced mortality, natural mortality and the ratio of population size in each area.
+LazyData: true
+License: GPL-3
+RoxygenNote: 6.0.1
