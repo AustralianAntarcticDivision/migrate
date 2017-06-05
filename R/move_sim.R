@@ -1,23 +1,31 @@
-#' Estimate movement between two areas from tag recaptures
+#' Estimate migration between two areas from tag recaptures
 #'
-#' Estimate movement between two areas from tag recaptures, catches and
+#' Estimate migration between two areas from tag recaptures, catches and
 #' population sizes in each area.
-#' @param obs1 this is the observations
-#' @param para this is the parameters
-#' @param rfit this is the rfit
-#' @param lltype the fitting method (least squares or maximum likelihood)
+#' @param obs A list that contains the following "yrs" years, "relT" vector
+#' of annual tag releases, "R1" matrix of recaptures in area 1, "R2" matrix
+#' of recaptures in area 2, "prec1" (catch numbers/vulnerable numbers) in area 1
+#' , "prec2" (catch numbers/vulnerable numbers) in area 2, "M" instantanous
+#' natural mortality rate, "relM" tag release mortality and "tagloss" annual tag
+#' loss.
+#' @param para starting value for the migration rate "move".
+#' @param rfit The recaptures to fit to, "R1" fits to recaptures in area 1 only,
+#'  "R2" fits the recaptures in area 2 only and "R12" fits to the recaptures in
+#'  both areas.
+#' @param lltype the fitting method: either "prop" (least squares) or "multinom"
+#' (maximum likelihood).
 #' @export
-move_sim <- function(obs1, para, rfit, lltype) {
+move_sim <- function(obs, para, rfit, lltype) {
   # extract the parameters and data
-  yrs <- obs1[["yrs"]]
-  relT <- obs1[["relT"]]
-  R1 <- obs1[["R1"]]
-  R2 <- obs1[["R2"]]
-  prec1 <- obs1[["prec1"]]
-  prec2 <- obs1[["prec2"]]
-  M <- obs1[["M"]]
-  relM <- obs1[["relM"]]
-  tagloss <- obs1[["tagloss"]]
+  yrs <- obs[["yrs"]]
+  relT <- obs[["relT"]]
+  R1 <- obs[["R1"]]
+  R2 <- obs[["R2"]]
+  prec1 <- obs[["prec1"]]
+  prec2 <- obs[["prec2"]]
+  M <- obs[["M"]]
+  relM <- obs[["relM"]]
+  tagloss <- obs[["tagloss"]]
   rfit <- rfit
   lltype <- lltype
   #move 	<- para[1]

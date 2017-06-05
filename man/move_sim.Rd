@@ -2,20 +2,28 @@
 % Please edit documentation in R/move_sim.R
 \name{move_sim}
 \alias{move_sim}
-\title{Estimate movement between two areas from tag recaptures}
+\title{Estimate migration between two areas from tag recaptures}
 \usage{
-move_sim(obs1, para, rfit, lltype)
+move_sim(obs, para, rfit, lltype)
 }
 \arguments{
-\item{obs1}{this is the observations}
+\item{obs}{A list that contains the following "yrs" years, "relT" vector
+of annual tag releases, "R1" matrix of recaptures in area 1, "R2" matrix
+of recaptures in area 2, "prec1" (catch numbers/vulnerable numbers) in area 1
+, "prec2" (catch numbers/vulnerable numbers) in area 2, "M" instantanous
+natural mortality rate, "relM" tag release mortality and "tagloss" annual tag
+loss.}
 
-\item{para}{this is the parameters}
+\item{para}{starting value for the migration rate "move".}
 
-\item{rfit}{this is the rfit}
+\item{rfit}{The recaptures to fit to, "R1" fits to recaptures in area 1 only,
+"R2" fits the recaptures in area 2 only and "R12" fits to the recaptures in
+both areas.}
 
-\item{lltype}{the fitting method (least squares or maximum likelihood)}
+\item{lltype}{the fitting method: either "prop" (least squares) or "multinom"
+(maximum likelihood).}
 }
 \description{
-Estimate movement between two areas from tag recaptures, catches and
+Estimate migration between two areas from tag recaptures, catches and
 population sizes in each area.
 }
